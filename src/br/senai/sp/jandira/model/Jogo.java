@@ -1,10 +1,12 @@
 package br.senai.sp.jandira.model;
 
+import javax.swing.JTextField;
+
 public class Jogo {
 
 	private String tituloJogo;
 	private Console console;
-	private double valorEstimado;
+	private JTextField valorEstimado;
 	private String observacoes;
 	private Boolean zerado;
 
@@ -26,12 +28,12 @@ public class Jogo {
 		this.console = console;
 	}
 
-	public double getValorEstimado() {
+	public JTextField getValorEstimado() {
 		return valorEstimado;
 	}
 
-	public void setValorEstimado(double valorEstimado) {
-		this.valorEstimado = valorEstimado;
+	public void setValorEstimado(JTextField textValorEstimado) {
+		this.valorEstimado = textValorEstimado;
 	}
 
 	public String getObservacoes() {
