@@ -5,12 +5,10 @@ import javax.swing.JTextField;
 public class Jogo {
 
 	private String tituloJogo;
-	private Console console;
-	private JTextField valorEstimado;
+	private int console;
+	private String valorEstimado;
 	private String observacoes;
 	private Boolean zerado;
-
-	public String wii;
 
 	public String getNomeJogo() {
 		return tituloJogo;
@@ -20,20 +18,20 @@ public class Jogo {
 		this.tituloJogo = nomeJogo;
 	}
 
-	public Console getConsole() {
+	public int getConsole() {
 		return console;
 	}
 
-	public void setConsole(Console console) {
-		this.console = console;
+	public void setConsole(int i) {
+		this.console = i;
 	}
 
-	public JTextField getValorEstimado() {
+	public String getValorEstimado() {
 		return valorEstimado;
 	}
 
-	public void setValorEstimado(JTextField textValorEstimado) {
-		this.valorEstimado = textValorEstimado;
+	public void setValorEstimado(String string) {
+		this.valorEstimado = string;
 	}
 
 	public String getObservacoes() {

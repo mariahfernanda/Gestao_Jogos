@@ -2,14 +2,14 @@ package br.senai.sp.jandira.model;
 
 public class Fabricante {
 
-	private String fabricanteJogo;
+	private int fabricanteJogo;
 
-	public String getFabricanteJogo() {
+	public int getFabricanteJogo() {
 		return fabricanteJogo;
 	}
 
-	public void setFabricanteJogo(String fabricanteJogo) {
-		this.fabricanteJogo = fabricanteJogo;
+	public void setFabricanteJogo(int i) {
+		this.fabricanteJogo = i;
 	}
 
 }
