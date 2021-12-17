@@ -1,15 +1,21 @@
 package br.senai.sp.jandira.model;
 
-public class Fabricante {
+public enum Fabricante {
 
-	private int fabricanteJogo;
+ 
+	SEGA ("SEGA"), 
+	CAPCOM("CAPCOM"), 
+	BANDAINANCO("BANDAI NANCO"), 
+	UBISOFT("UBISOFT"), 
+	ROCKSTAR("ROCKSTAR");
+	
+	private String fabricantess;
 
-	public int getFabricanteJogo() {
-		return fabricanteJogo;
+	private Fabricante(String fabricantes) {
+		this.fabricantess = fabricantes;
 	}
 
-	public void setFabricanteJogo(int i) {
-		this.fabricanteJogo = i;
+	public String getDescricao() {
+		return fabricantess;
 	}
-
 }

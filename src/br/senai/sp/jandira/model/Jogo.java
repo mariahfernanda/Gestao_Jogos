@@ -1,6 +1,5 @@
 package br.senai.sp.jandira.model;
 
-import javax.swing.JTextField;
 
 public class Jogo {
 
@@ -9,6 +8,8 @@ public class Jogo {
 	private String valorEstimado;
 	private String observacoes;
 	private Boolean zerado;
+	private int fabricante;
+	private int dificuldade;
 
 	public String getNomeJogo() {
 		return tituloJogo;
@@ -42,12 +43,28 @@ public class Jogo {
 		this.observacoes = observacoes;
 	}
 
-	public boolean isZerado() {
+	public boolean getZerado() {
 		return zerado;
 	}
 
-	public void setZerado(Boolean zerado) {
+	public void setZerado(boolean zerado) {
 		this.zerado = zerado;
+	}
+
+	public int getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(int a) {
+		this.fabricante = a;
+	}
+
+	public int getDificuldade() {
+		return dificuldade;
+	}
+
+	public void setDificuldade(int dificuldade) {
+		this.dificuldade = dificuldade;
 	}
 
 }

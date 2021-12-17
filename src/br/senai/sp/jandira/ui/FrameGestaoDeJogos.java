@@ -31,6 +31,10 @@ import br.senai.sp.jandira.model.Console;
 import br.senai.sp.jandira.model.Fabricante;
 import br.senai.sp.jandira.model.Jogo;
 import br.senai.sp.jandira.repository.JogoRepository;
+import javax.swing.JCheckBox;
+import javax.swing.JSeparator;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.AncestorEvent;
 
 public class FrameGestaoDeJogos extends JFrame {
 
@@ -68,28 +72,10 @@ public class FrameGestaoDeJogos extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 553, 430);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(204, 204, 204));
+		contentPane.setBackground(Color.GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		JLabel lblRaiva = new JLabel("");
-		lblRaiva.setIcon(
-				new ImageIcon("C:\\Users\\21276378\\eclipse-workspace\\GestaoDeJogos\\img\\emoji-png-88 1.png"));
-		lblRaiva.setBounds(313, 194, 24, 21);
-		contentPane.add(lblRaiva);
-
-		JLabel lblTriste = new JLabel("");
-		lblTriste.setIcon(
-				new ImageIcon("C:\\Users\\21276378\\eclipse-workspace\\GestaoDeJogos\\img\\emoji-png-65 1.png"));
-		lblTriste.setBounds(229, 194, 24, 25);
-		contentPane.add(lblTriste);
-
-		JLabel lblFeliz = new JLabel("");
-		lblFeliz.setIcon(
-				new ImageIcon("C:\\Users\\21276378\\eclipse-workspace\\GestaoDeJogos\\img\\emoji-png-04 1.png"));
-		lblFeliz.setBounds(149, 194, 24, 25);
-		contentPane.add(lblFeliz);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(332, 50, 195, 291);
@@ -109,13 +95,13 @@ public class FrameGestaoDeJogos extends JFrame {
 
 		JLabel lblTituloJogo = new JLabel("Titulo Do Jogo:");
 		lblTituloJogo.setForeground(new Color(255, 255, 255));
-		lblTituloJogo.setBounds(5, 35, 120, 21);
+		lblTituloJogo.setBounds(5, 51, 120, 21);
 		lblTituloJogo.setBackground(new Color(255, 255, 255));
 		lblTituloJogo.setFont(new Font("MS PGothic", Font.BOLD, 15));
 		contentPane.add(lblTituloJogo);
 
 		textTituloJogo = new JTextField();
-		textTituloJogo.setBounds(113, 35, 209, 20);
+		textTituloJogo.setBounds(113, 51, 209, 20);
 		textTituloJogo.setBackground(new Color(255, 255, 255));
 		textTituloJogo.setFont(new Font("MS PGothic", Font.ITALIC, 14));
 		contentPane.add(textTituloJogo);
@@ -124,7 +110,7 @@ public class FrameGestaoDeJogos extends JFrame {
 		JLabel lblFabricante = new JLabel("Fabricante:");
 		lblFabricante.setForeground(new Color(255, 255, 255));
 		lblFabricante.setFont(new Font("MS PGothic", Font.BOLD, 15));
-		lblFabricante.setBounds(15, 70, 82, 14);
+		lblFabricante.setBounds(5, 87, 82, 14);
 		contentPane.add(lblFabricante);
 
 		JComboBox<String> comboBoxFabricante = new JComboBox<String>();
@@ -133,36 +119,35 @@ public class FrameGestaoDeJogos extends JFrame {
 				new String[] { "", "SEGA", "CAPCOM", "BANDAI NANCO", "UBISOFT", "ROCKSTAR" }));
 		comboBoxFabricante.setBackground(new Color(255, 255, 255));
 		comboBoxFabricante.setForeground(new Color(0, 0, 0));
-		comboBoxFabricante.setBounds(113, 67, 209, 22);
+		comboBoxFabricante.setBounds(113, 83, 209, 22);
 		contentPane.add(comboBoxFabricante);
-
-		JSpinner spinnerZerado = new JSpinner();
-		spinnerZerado.setFont(new Font("MS PGothic", Font.BOLD, 14));
-		spinnerZerado.setBounds(59, 98, 44, 20);
-		contentPane.add(spinnerZerado);
 
 		JLabel lblZerado = new JLabel("Zerado:");
 		lblZerado.setForeground(new Color(255, 255, 255));
 		lblZerado.setFont(new Font("MS PGothic", Font.BOLD, 15));
-		lblZerado.setBounds(5, 101, 55, 14);
+		lblZerado.setBounds(5, 132, 55, 14);
 		contentPane.add(lblZerado);
 
+		JCheckBox chckbxZerado = new JCheckBox("");
+		chckbxZerado.setBounds(66, 123, 21, 23);
+		contentPane.add(chckbxZerado);
+		
 		JLabel lblConsole = new JLabel("Console:");
 		lblConsole.setForeground(new Color(255, 255, 255));
 		lblConsole.setFont(new Font("MS PGothic", Font.BOLD, 15));
-		lblConsole.setBounds(5, 141, 70, 14);
+		lblConsole.setBounds(5, 170, 70, 14);
 		contentPane.add(lblConsole);
 
 		JLabel lblValorEstimado = new JLabel("Valor Estimado:");
 		lblValorEstimado.setForeground(new Color(255, 255, 255));
 		lblValorEstimado.setFont(new Font("Garamond", Font.BOLD, 15));
-		lblValorEstimado.setBounds(113, 104, 105, 14);
+		lblValorEstimado.setBounds(113, 132, 105, 14);
 		contentPane.add(lblValorEstimado);
 
 		JLabel lblObservacoes = new JLabel("Observa\u00E7\u00F5es:");
 		lblObservacoes.setForeground(new Color(255, 255, 255));
 		lblObservacoes.setFont(new Font("MS PGothic", Font.BOLD, 15));
-		lblObservacoes.setBounds(5, 230, 98, 14);
+		lblObservacoes.setBounds(5, 211, 98, 14);
 		contentPane.add(lblObservacoes);
 
 		JButton btnSalvar = new JButton("Salvar");
@@ -176,7 +161,7 @@ public class FrameGestaoDeJogos extends JFrame {
 
 		textValorEstimado = new JTextField();
 		textValorEstimado.setFont(new Font("MS PGothic", Font.BOLD, 14));
-		textValorEstimado.setBounds(212, 100, 110, 20);
+		textValorEstimado.setBounds(217, 129, 110, 20);
 		contentPane.add(textValorEstimado);
 		textValorEstimado.setColumns(10);
 
@@ -190,14 +175,21 @@ public class FrameGestaoDeJogos extends JFrame {
 		comboConsole.setModel(comboModelConsole);
 		comboConsole.setToolTipText("");
 		comboConsole.setFont(new Font("MS PGothic", Font.BOLD, 12));
-		comboConsole.setBounds(67, 137, 261, 22);
+		comboConsole.setBounds(66, 166, 261, 22);
 		contentPane.add(comboConsole);
 
 		DefaultListModel<String> modelJogos = new DefaultListModel<String>();
 		listJogos.setModel(modelJogos);
+		
+		JEditorPane editorPaneObservacoes = new JEditorPane();
+		editorPaneObservacoes.setFont(new Font("MS PGothic", Font.BOLD, 12));
+		editorPaneObservacoes.setBounds(113, 206, 215, 111);
+		contentPane.add(editorPaneObservacoes);
 
-		JogoRepository joguinho = new JogoRepository(5);
+		
+		JogoRepository joguinho = new JogoRepository(2);
 
+		
 		btnSalvar.addActionListener(new ActionListener() {
 
 			@Override
@@ -205,13 +197,13 @@ public class FrameGestaoDeJogos extends JFrame {
 
 				Jogo jogo = new Jogo();
 				jogo.setNomeJogo(textTituloJogo.getText());
-				jogo.setValorEstimado(textValorEstimado.getSelectedText());
-				jogo.setZerado(null);
+				jogo.setValorEstimado(textValorEstimado.getText());
+				jogo.setZerado(chckbxZerado.isSelected());
 				jogo.setConsole(comboConsole.getSelectedIndex());
+				jogo.setObservacoes(editorPaneObservacoes.getText());
+				jogo.setFabricante(comboBoxFabricante.getSelectedIndex());
 
-				Fabricante fabricante = new Fabricante();
-				fabricante.setFabricanteJogo(comboBoxFabricante.getSelectedIndex());
-
+				
 				joguinho.gravarJogos(jogo, posicao);
 
 				posicao++;
@@ -219,32 +211,13 @@ public class FrameGestaoDeJogos extends JFrame {
 				modelJogos.addElement(jogo.getNomeJogo());
 				if (posicao == joguinho.getTamanho()) {
 					btnSalvar.setEnabled(false);
-					JOptionPane.showMessageDialog(null, "A turma já está completa", "cheio",
+					JOptionPane.showMessageDialog(null, "A lista já está completa", "cheio",
 							JOptionPane.WARNING_MESSAGE);
 				}
 
 			}
 		});
 
-		JSlider sliderGrauDificuldade = new JSlider();
-		sliderGrauDificuldade.setPaintTicks(true);
-		sliderGrauDificuldade.setMajorTickSpacing(10);
-		sliderGrauDificuldade.setMaximum(2);
-		sliderGrauDificuldade.setValue(0);
-		sliderGrauDificuldade.setToolTipText("");
-		sliderGrauDificuldade.setBounds(149, 170, 179, 24);
-		contentPane.add(sliderGrauDificuldade);
-
-		JLabel lblGrauDificuldade = new JLabel("Grau De Dificuldade:\r\n");
-		lblGrauDificuldade.setForeground(new Color(255, 255, 255));
-		lblGrauDificuldade.setFont(new Font("MS PGothic", Font.BOLD, 15));
-		lblGrauDificuldade.setBounds(5, 183, 152, 14);
-		contentPane.add(lblGrauDificuldade);
-
-		JEditorPane editorPaneObservacoes = new JEditorPane();
-		editorPaneObservacoes.setFont(new Font("MS PGothic", Font.BOLD, 12));
-		editorPaneObservacoes.setBounds(113, 230, 215, 87);
-		contentPane.add(editorPaneObservacoes);
 
 		JButton btnMostarJogos = new JButton("Mostar Jogos Salvos");
 		btnMostarJogos.setFont(new Font("MS PGothic", Font.BOLD, 12));
@@ -252,6 +225,14 @@ public class FrameGestaoDeJogos extends JFrame {
 		btnMostarJogos.setBackground(Color.BLACK);
 		btnMostarJogos.setBounds(342, 352, 185, 23);
 		contentPane.add(btnMostarJogos);
+		
+		JLabel lblNewLabel = new JLabel("GEST\u00C3O DE JOGOS");
+		lblNewLabel.setForeground(Color.PINK);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(98, 11, 174, 22);
+		contentPane.add(lblNewLabel);
+		
+		
 		btnMostarJogos.addActionListener(new ActionListener() {
 
 			@Override
@@ -261,31 +242,41 @@ public class FrameGestaoDeJogos extends JFrame {
 					System.out.println(jogo.getObservacoes());
 					System.out.println(jogo.getConsole());
 					System.out.println(jogo.getValorEstimado());
-					System.out.println(Fabricante.class);
+					System.out.println(jogo.getFabricante());
 				}
 			}
 		});
 
-		JLabel lblPlanoDeFundo = new JLabel("New label");
-		lblPlanoDeFundo.setIcon(new ImageIcon(
-				"C:\\Users\\21276378\\eclipse-workspace\\GestaoDeJogos\\img\\a8d86f74643e1a54489e3bd56a706a81.jpg"));
-		lblPlanoDeFundo.setBounds(-324, -55, 1096, 723);
-		contentPane.add(lblPlanoDeFundo);
-
 		listJogos.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				Jogo jogo = joguinho.listarJogos(listJogos.getSelectedIndex());
+				
 				textTituloJogo.setText(jogo.getNomeJogo());
 				textValorEstimado.setText(jogo.getValorEstimado());
 				comboConsole.setSelectedIndex(jogo.getConsole());
 				editorPaneObservacoes.setText(jogo.getObservacoes());
-				comboBoxFabricante.setSelectedItem(comboBoxFabricante.getSelectedItem());
-				
+				comboBoxFabricante.setSelectedIndex(jogo.getFabricante());
+				chckbxZerado.setSelected(jogo.getZerado());
 			}
 		});
 
 	}
+	
+	@SuppressWarnings("unused")
+	private Fabricante determinarFabricante(int fabricanteSelecionado) {
 
+		if (fabricanteSelecionado == 0) {
+			return Fabricante.SEGA;
+		} else if (fabricanteSelecionado == 1) {
+			return Fabricante.CAPCOM;
+		} else if (fabricanteSelecionado == 2) {
+			return Fabricante.BANDAINANCO;
+		} else if (fabricanteSelecionado == 3) {
+			return Fabricante.UBISOFT;
+		} else{
+			return Fabricante.ROCKSTAR;
+		}
+	}
 	@SuppressWarnings("unused")
 	private Console determinarConsole(int consoleSelecionado) {
 
@@ -303,5 +294,4 @@ public class FrameGestaoDeJogos extends JFrame {
 			return Console.NINTENDOWIIU;
 		}
 	}
-
 }
